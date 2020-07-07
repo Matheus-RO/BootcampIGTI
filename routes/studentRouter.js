@@ -48,18 +48,4 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-// Atualiza com base no id informado
-router.put('/:id', async (req, res) => {
-  try {
-    const student = await studentModel.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body,
-      { new: true }
-    );
-    res.send(student);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
 export default router;
